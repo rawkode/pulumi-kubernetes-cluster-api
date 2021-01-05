@@ -1,0 +1,22 @@
+{
+	"name": "@rawkode/kubernetes-cluster-api-types",
+	"description": "Pulumi Kubernetes Cluster API Types",
+	"repository": "https://github.com/rawkode/pulumi-kubernetes-cluster-api",
+	"author": "David McKay <david@rawkode.dev>",
+	"license": "MIT",
+	"files": [
+		"dist"
+	],
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "tsc"
+	},
+	"peerDependencies": {
+		"@pulumi/pulumi": "2.16.2"
+	},
+	"pulumi": {
+		"resource": true
+	},
+	"version": "0.3.11"
+}

@@ -1,0 +1,26 @@
+OS_TYPE := `uname -s | awk '{ print tolower($0) }'`
+VERSION := `cat package.publish.json | jq .version`
+
+@generate-types: _pulumi-helpers _cluster-api-components _generate-types-nodejs
+
+@_generate-types-nodejs:
+	./crd2pulumi --nodejsName capi --nodejsPath ./ ./capi-components.yaml --force
+	cp ./package.publish.json ./package.json
+	yarn publish
+
+@_cluster-api-components:
+	curl -fSsL -o capi-components.yaml https://github.com/kubernetes-sigs/cluster-api/releases/download/v{{ VERSION }}/cluster-api-components.yaml
+
+@_pulumi-helpers: _crd2pulumi _kube2pulumi
+
+@_kube2pulumi:
+	curl -fSsL -o kube2pulumi.tgz https://github.com/pulumi/kube2pulumi/releases/download/v0.0.5/kube2pulumi-v0.0.5-{{ OS_TYPE }}-amd64.tar.gz
+	tar --extract --file=kube2pulumi.tgz kube2pulumi
+	rm kube2pulumi.tgz
+	chmod +x kube2pulumi
+
+@_crd2pulumi:
+	curl -fSsL -o crd2pulumi.tgz https://github.com/pulumi/crd2pulumi/releases/download/v1.0.5/crd2pulumi-v1.0.5-{{ OS_TYPE }}-amd64.tar.gz
+	tar --extract --file=crd2pulumi.tgz crd2pulumi
+	rm crd2pulumi.tgz
+	chmod +x crd2pulumi
