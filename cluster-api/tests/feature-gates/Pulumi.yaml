@@ -1,0 +1,4 @@
+name: feature-gates-test
+runtime: nodejs
+description: Testing that Feature Gates can be enabled
+main: index.ts

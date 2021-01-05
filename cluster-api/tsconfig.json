@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"declaration": true,
+		"esModuleInterop": true,
+		"experimentalDecorators": true,
+		"forceConsistentCasingInFileNames": true,
+		"lib": ["es2017", "es7", "es6", "dom"],
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"outDir": "bin",
+		"pretty": true,
+		"sourceMap": false,
+		"strictNullChecks": true,
+		"stripInternal": true,
+		"target": "es6"
+	},
+	"exclude": ["node_modules", "bin", "tests"]
+}

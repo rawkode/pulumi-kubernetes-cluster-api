@@ -1,0 +1,15 @@
+test:
+  #!/usr/bin/env sh
+  export PULUMI_CONFIG_PASSPHRASE=abc
+
+  pulumi login --local
+  pulumi plugin install resource kubernetes 2.7.0
+
+  for testDir in ./tests/*; do
+    if [ -d "${testDir}" ]; then
+      pulumi --cwd ${testDir} stack init --stack test
+      pulumi --cwd ${testDir} update --logtostderr --stack test --yes --cwd ${testDir}
+      pulumi --cwd ${testDir} stack rm --stack test --force --yes
+      conftest test --policy ${testDir}/test.rego ${testDir}/rendered-yaml
+    fi
+  done
