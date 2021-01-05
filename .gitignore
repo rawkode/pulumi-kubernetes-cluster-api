@@ -1,2 +1,4 @@
 crd2pulumi
 kube2pulumi
+node_modules
+*.lock

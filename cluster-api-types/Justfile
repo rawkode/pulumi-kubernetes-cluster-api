@@ -1,12 +1,18 @@
 OS_TYPE := `uname -s | awk '{ print tolower($0) }'`
-VERSION := `cat package.publish.json | jq .version`
+VERSION := `cat package.publish.json| jq .version | sed -E "s/-[0-9]+//"`
+
+@publish: build
+	yarn version --prerelease --no-git-tag-version
+	yarn publish --access public
+
+@build: generate-types
+  yarn run tsc
 
 @generate-types: _pulumi-helpers _cluster-api-components _generate-types-nodejs
 
 @_generate-types-nodejs:
 	./crd2pulumi --nodejsName capi --nodejsPath ./ ./capi-components.yaml --force
 	cp ./package.publish.json ./package.json
-	yarn publish
 
 @_cluster-api-components:
 	curl -fSsL -o capi-components.yaml https://github.com/kubernetes-sigs/cluster-api/releases/download/v{{ VERSION }}/cluster-api-components.yaml
