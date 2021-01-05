@@ -1,0 +1,9 @@
+{
+	"private": true,
+	"workspaces": [
+		"cluster-api-types",
+		"cluster-api",
+		"providers/equinix-metal",
+		"providers/equinix-metal-types"
+	]
+}
