@@ -1,5 +1,5 @@
 {
-	"name": "@rawkode/kubernetes-cluster-api-types",
+	"name": "@rawkode/pulumi-kubernetes-cluster-api-types",
 	"description": "Pulumi Kubernetes Cluster API Types",
 	"repository": "https://github.com/rawkode/pulumi-kubernetes-cluster-api",
 	"author": "David McKay <david@rawkode.dev>",
@@ -23,5 +23,5 @@
 	"scripts": {
 		"build": "just build"
 	},
-	"version": "0.3.11-3"
+	"version": "0.3.11-4"
 }
