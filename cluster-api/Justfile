@@ -1,3 +1,7 @@
+publish:
+	yarn version --prerelease
+	yarn publish --access public
+
 test:
   #!/usr/bin/env sh
   export PULUMI_CONFIG_PASSPHRASE=abc
