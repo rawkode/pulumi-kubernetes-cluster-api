@@ -1,0 +1,33 @@
+OS_TYPE := `uname -s | awk '{ print tolower($0) }'`
+VERSION := `cat package.publish.json| jq .version | sed -E "s/-[0-9]+//"`
+
+@publish: build
+	yarn version --prerelease --no-git-tag-version
+	cp package.json package.publish.json
+	yarn publish --access public
+
+@build: generate-types
+  yarn run tsc
+
+@generate-types: _pulumi-helpers _capdo-components _generate-types-nodejs
+
+@_generate-types-nodejs:
+	./crd2pulumi --nodejsName capi --nodejsPath ./ ./capdo-components.yaml --force
+	cp ./package.publish.json ./package.json
+
+@_capdo-components:
+	curl -fSsL -o capdo-components.yaml https://github.com/kubernetes-sigs/cluster-api-provider-digitalocean/releases/download/v{{ VERSION }}/infrastructure-components.yaml
+
+@_pulumi-helpers: _crd2pulumi _kube2pulumi
+
+@_kube2pulumi:
+	curl -fSsL -o kube2pulumi.tgz https://github.com/pulumi/kube2pulumi/releases/download/v0.0.5/kube2pulumi-v0.0.5-{{ OS_TYPE }}-amd64.tar.gz
+	tar --extract --file=kube2pulumi.tgz kube2pulumi
+	rm kube2pulumi.tgz
+	chmod +x kube2pulumi
+
+@_crd2pulumi:
+	curl -fSsL -o crd2pulumi.tgz https://github.com/pulumi/crd2pulumi/releases/download/v1.0.5/crd2pulumi-v1.0.5-{{ OS_TYPE }}-amd64.tar.gz
+	tar --extract --file=crd2pulumi.tgz crd2pulumi
+	rm crd2pulumi.tgz
+	chmod +x crd2pulumi
