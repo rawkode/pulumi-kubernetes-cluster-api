@@ -1,0 +1,32 @@
+{
+	"name": "@rawkode/pulumi-kubernetes-cluster-api-digitalocean",
+	"version": "0.4.1-1",
+	"description": "Pulumi Kubernetes Cluster API Helpers for DigitalOcean Provider",
+	"repository": "https://github.com/rawkode/pulumi-kubernetes-cluster-api",
+	"author": "David McKay <david@rawkode.dev>",
+	"license": "MIT",
+	"files": [
+		"bin"
+	],
+	"dependencies": {
+		"@pulumi/kubernetes": "2.7.0",
+		"@pulumi/pulumi": "2.13.2",
+		"@rawkode/pulumi-kubernetes-cluster-api-types-digitalocean": "^0.4.1-1",
+		"ip-cidr": "^2.1.1"
+	},
+	"devDependencies": {
+		"@types/ip-address": "^7.0.0",
+		"@types/jsbn": "^1.2.29",
+		"@types/mocha": "^8.0.4",
+		"@types/node": "^14.14.7",
+		"eslint": "^7.13.0",
+		"mocha": "^8.2.1",
+		"ts-node": "^9.0.0",
+		"typescript": "^4.0.5"
+	},
+	"scripts": {
+		"build": "tsc"
+	},
+	"main": "bin/index.js",
+	"types": "bin/index.d.ts"
+}

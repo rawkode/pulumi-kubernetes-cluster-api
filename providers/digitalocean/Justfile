@@ -1,0 +1,3 @@
+publish:
+	yarn version --prerelease
+	yarn publish --access public
