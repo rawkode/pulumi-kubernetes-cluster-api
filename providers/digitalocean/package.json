@@ -1,6 +1,6 @@
 {
 	"name": "@rawkode/pulumi-kubernetes-cluster-api-digitalocean",
-	"version": "0.4.1-2",
+	"version": "0.4.1-3",
 	"description": "Pulumi Kubernetes Cluster API Helpers for DigitalOcean Provider",
 	"repository": "https://github.com/rawkode/pulumi-kubernetes-cluster-api",
 	"author": "David McKay <david@rawkode.dev>",
