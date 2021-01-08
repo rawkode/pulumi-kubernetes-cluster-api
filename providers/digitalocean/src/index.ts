@@ -25,7 +25,9 @@ export const init = (config: ProviderConfig): Provider => {
 							obj.kind === "Secret" &&
 							obj.metadata.name === "capdo-manager-bootstrap-credentials"
 						) {
+							obj.data = undefined;
 							obj.stringData = {};
+
 							obj.stringData.credentials = config.accessToken;
 						}
 					},
