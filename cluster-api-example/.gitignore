@@ -1,0 +1,6 @@
+/bin/
+/node_modules/
+/rendered-yaml/
+package-lock.json
+yarn.lock
+Pulumi.*.yaml
