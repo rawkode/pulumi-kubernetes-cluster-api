@@ -3,7 +3,7 @@ import * as kubernetes from "@pulumi/kubernetes";
 
 interface Secret {
 	key: string;
-	value: string | pulumi.Output<string>;
+	value: string;
 }
 
 export const createSecretResourceSet = (
@@ -11,9 +11,7 @@ export const createSecretResourceSet = (
 	name: string,
 	namespace: string,
 	secrets: Secret[]
-) => {
-	const secretData = "";
-
+) =>
 	new kubernetes.core.v1.Secret(
 		name,
 		{
@@ -30,7 +28,7 @@ metadata:
   namespace: ${namespace}
 type: Opaque
 data:
-${encodeSecrets(secrets).join("\n  ")}
+  ${encodeSecrets(secrets).join("\n  ")}
 `,
 			},
 		},
@@ -38,10 +36,7 @@ ${encodeSecrets(secrets).join("\n  ")}
 			provider,
 		}
 	);
-};
 
-const encodeSecrets = (secrets: Secret[]) => {
-	return secrets.map(
-		(secret) => pulumi.interpolate`${secret.key}: ${secret.value}`
-	);
+const encodeSecrets = (secrets: Secret[]): string[] => {
+	return secrets.map((secret) => `${secret.key}: ${secret.value}`);
 };
