@@ -7,6 +7,6 @@
 		"@pulumi/pulumi": "^2.0.0",
 		"@pulumi/kubernetes": "^2.0.0",
 		"@pulumi/kubernetesx": "^0.1.1",
-		"@rawkode/pulumi-kubernetes-cluster-api": "0.3.11-2"
+		"@rawkode/pulumi-kubernetes-cluster-api": "../cluster-api/"
 	}
 }
