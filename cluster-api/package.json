@@ -1,6 +1,6 @@
 {
 	"name": "@rawkode/pulumi-kubernetes-cluster-api",
-	"version": "0.3.11-9",
+	"version": "0.3.11-10",
 	"description": "Pulumi Kubernetes Cluster API Helpers",
 	"repository": "https://github.com/rawkode/pulumi-kubernetes-cluster-api",
 	"author": "David McKay <david@rawkode.dev>",
