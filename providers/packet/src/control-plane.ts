@@ -1,5 +1,5 @@
 import * as kubernetes from "@pulumi/kubernetes";
-import { KubernetesCustomResource } from "@rawkode/pulumi-kubernetes-cluster-api/bin/cluster/machine-template";
+import { KubernetesCustomResource } from "@rawkode/pulumi-kubernetes-cluster-api";
 import * as capp from "@rawkode/pulumi-kubernetes-cluster-api-types-packet";
 
 import Facility from "./facility";
