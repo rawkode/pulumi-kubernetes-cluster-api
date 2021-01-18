@@ -37,7 +37,9 @@ export const create = (
 				infrastructureTemplate: {
 					apiVersion: pulumi.interpolate`${controlPlaneSpec.machineTemplate.apiVersion}`,
 					kind: pulumi.interpolate`${controlPlaneSpec.machineTemplate.kind}`,
-					name: pulumi.interpolate`${controlPlaneSpec.machineTemplate.metadata.name}`,
+					name: pulumi.interpolate`${controlPlaneSpec.machineTemplate.metadata.apply(
+						(m) => m?.name
+					)}`,
 				},
 				kubeadmConfigSpec: {
 					preKubeadmCommands:
@@ -107,7 +109,7 @@ export const create = (
 				infrastructureRef: {
 					apiVersion: pulumi.interpolate`${infra.apiVersion}`,
 					kind: pulumi.interpolate`${infra.kind}`,
-					name: pulumi.interpolate`${infra.metadata?.name}`,
+					name: pulumi.interpolate`${infra.metadata.apply((m) => m?.name)}`,
 				},
 			},
 		},

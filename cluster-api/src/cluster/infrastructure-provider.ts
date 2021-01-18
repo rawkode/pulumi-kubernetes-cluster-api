@@ -6,5 +6,5 @@ export type InfrastructureProvider = CustomResource & InfrastructureCluster;
 interface InfrastructureCluster {
 	apiVersion: Output<string | undefined>;
 	kind: Output<string | undefined>;
-	metadata: types.input.meta.v1.ObjectMeta | undefined;
+	metadata: Output<types.input.meta.v1.ObjectMeta | undefined>;
 }
