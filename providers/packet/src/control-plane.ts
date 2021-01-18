@@ -4,7 +4,7 @@ import { ControlPlaneSpec } from "@rawkode/pulumi-kubernetes-cluster-api/cluster
 import * as capp from "@rawkode/pulumi-kubernetes-cluster-api-types-packet";
 
 import Facility from "./facility";
-import { Image } from "./images";
+import { Image } from "./images/base";
 
 export interface InfrastructureConfig {
 	name: string;
