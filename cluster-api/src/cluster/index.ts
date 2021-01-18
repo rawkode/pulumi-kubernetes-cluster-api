@@ -14,7 +14,7 @@ export interface Config {
 	serviceCidr: ipCidr;
 }
 
-interface ControlPlaneSpec {
+export interface ControlPlaneSpec {
 	replicas: number;
 	machineTemplate: MachineTemplate;
 }
