@@ -3,10 +3,10 @@ import { CustomResource, Output } from "@pulumi/pulumi";
 export type MachineTemplate = CustomResource & MachineTemplateImpl;
 
 interface MachineTemplateImpl {
-	apiVersion: Output<string>;
-	kind: Output<string>;
+	apiVersion: Output<string | undefined>;
+	kind: Output<string | undefined>;
 	metadata: {
-		name: Output<string>;
+		name: Output<string | undefined>;
 	};
 
 	preKubeadmCommands: string[];

@@ -3,9 +3,9 @@ import { CustomResource, Output } from "@pulumi/pulumi";
 export type InfrastructureProvider = CustomResource & InfrastructureCluster;
 
 interface InfrastructureCluster {
-	apiVersion: Output<string>;
-	kind: Output<string>;
+	apiVersion: Output<string | undefined>;
+	kind: Output<string | undefined>;
 	metadata: {
-		name: Output<string>;
+		name: Output<string | undefined>;
 	};
 }

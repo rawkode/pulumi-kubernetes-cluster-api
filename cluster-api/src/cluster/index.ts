@@ -35,9 +35,9 @@ export const create = (
 				replicas: controlPlaneSpec.replicas,
 				version: config.kubernetesVersion,
 				infrastructureTemplate: {
-					apiVersion: controlPlaneSpec.machineTemplate.apiVersion,
-					kind: controlPlaneSpec.machineTemplate.kind,
-					name: controlPlaneSpec.machineTemplate.metadata.name,
+					apiVersion: pulumi.interpolate`${controlPlaneSpec.machineTemplate.apiVersion}`,
+					kind: pulumi.interpolate`${controlPlaneSpec.machineTemplate.kind}`,
+					name: pulumi.interpolate`${controlPlaneSpec.machineTemplate.metadata.name}`,
 				},
 				kubeadmConfigSpec: {
 					preKubeadmCommands:
@@ -105,9 +105,9 @@ export const create = (
 					),
 				},
 				infrastructureRef: {
-					apiVersion: infra.apiVersion,
-					kind: infra.kind,
-					name: infra.metadata.name,
+					apiVersion: pulumi.interpolate`${infra.apiVersion}`,
+					kind: pulumi.interpolate`${infra.kind}`,
+					name: pulumi.interpolate`${infra.metadata.name}`,
 				},
 			},
 		},
