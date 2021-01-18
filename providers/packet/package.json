@@ -11,8 +11,8 @@
 	"dependencies": {
 		"@pulumi/kubernetes": "2.7.0",
 		"@pulumi/pulumi": "2.13.2",
-		"@rawkode/pulumi-kubernetes-cluster-api": "^0.3.11-14",
-		"@rawkode/pulumi-kubernetes-cluster-api-types-packet": "^0.3.8-4",
+		"@rawkode/pulumi-kubernetes-cluster-api": "^0.3.11-16",
+		"@rawkode/pulumi-kubernetes-cluster-api-types-packet": "^0.3.8-5",
 		"ip-cidr": "^2.1.1"
 	},
 	"devDependencies": {

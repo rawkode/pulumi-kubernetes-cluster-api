@@ -1,7 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as kubernetes from "@pulumi/kubernetes";
 
-import { PacketMachineTemplate } from "@rawkode/pulumi-kubernetes-cluster-api-types-packet/bin/infrastructure/v1alpha3";
+import { PacketMachineTemplate } from "@rawkode/pulumi-kubernetes-cluster-api-types-packet/infrastructure/v1alpha3";
 
 const VERSION = "0.3.8";
 
