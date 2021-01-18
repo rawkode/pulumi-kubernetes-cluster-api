@@ -4,7 +4,8 @@ VERSION := `cat package.publish.json| jq .version | sed -E "s/-[0-9]+//"`
 @publish: build
 	yarn version --prerelease --no-git-tag-version
 	cp package.json package.publish.json
-	yarn publish --access public
+	cp README.md LICENSE package.json ./bin/
+	yarn publish ./bin --access public
 
 @build: generate-types
   yarn run tsc

@@ -4,11 +4,6 @@
 	"repository": "https://github.com/rawkode/pulumi-kubernetes-cluster-api",
 	"author": "David McKay <david@rawkode.dev>",
 	"license": "MIT",
-	"files": [
-		"bin"
-	],
-	"main": "bin/index.js",
-	"types": "bin/index.d.ts",
 	"devDependencies": {
 		"@pulumi/kubernetes": "2.7.0",
 		"@pulumi/pulumi": "2.16.2",
@@ -23,5 +18,5 @@
 	"scripts": {
 		"build": "just build"
 	},
-	"version": "0.3.11-4"
+	"version": "0.3.11-5"
 }
