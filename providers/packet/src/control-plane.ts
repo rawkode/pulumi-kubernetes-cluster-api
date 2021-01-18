@@ -1,5 +1,5 @@
 import * as kubernetes from "@pulumi/kubernetes";
-import { CustomResource } from "@pulumi/pulumi";
+import { KubernetesCustomResource } from "@rawkode/pulumi-kubernetes-cluster-api/bin/cluster/machine-template";
 import * as capp from "@rawkode/pulumi-kubernetes-cluster-api-types-packet";
 
 import Facility from "./facility";
@@ -12,8 +12,8 @@ export interface InfrastructureConfig {
 }
 
 export interface Infrastructure {
-	cluster: CustomResource;
-	machineTemplate: CustomResource;
+	cluster: KubernetesCustomResource;
+	machineTemplate: KubernetesCustomResource;
 }
 
 export const create = (config: InfrastructureConfig): Infrastructure => {
