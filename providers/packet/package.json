@@ -1,6 +1,6 @@
 {
 	"name": "@rawkode/pulumi-kubernetes-cluster-api-packet",
-	"version": "0.3.8-11",
+	"version": "0.3.8-12",
 	"description": "Pulumi Kubernetes Cluster API Helpers for Packet Provider",
 	"repository": "https://github.com/rawkode/pulumi-kubernetes-cluster-api",
 	"author": "David McKay <david@rawkode.dev>",
@@ -12,7 +12,7 @@
 		"@pulumi/kubernetes": "2.7.0",
 		"@pulumi/pulumi": "2.13.2",
 		"@rawkode/pulumi-kubernetes-cluster-api": "^0.3.11-16",
-		"@rawkode/pulumi-kubernetes-cluster-api-types-packet": "^0.3.8-5",
+		"@rawkode/pulumi-kubernetes-cluster-api-types-packet": "^0.3.8-4",
 		"ip-cidr": "^2.1.1"
 	},
 	"devDependencies": {
