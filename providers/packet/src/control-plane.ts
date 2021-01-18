@@ -1,5 +1,6 @@
 import * as kubernetes from "@pulumi/kubernetes";
 import { KubernetesCustomResource } from "@rawkode/pulumi-kubernetes-cluster-api";
+import { ControlPlaneSpec } from "@rawkode/pulumi-kubernetes-cluster-api/bin/cluster";
 import * as capp from "@rawkode/pulumi-kubernetes-cluster-api-types-packet";
 
 import Facility from "./facility";
@@ -13,7 +14,7 @@ export interface InfrastructureConfig {
 
 export interface Infrastructure {
 	cluster: KubernetesCustomResource;
-	machineTemplate: KubernetesCustomResource;
+	controlPlane: ControlPlaneSpec;
 }
 
 export const create = (config: InfrastructureConfig): Infrastructure => {
@@ -43,6 +44,13 @@ export const create = (config: InfrastructureConfig): Infrastructure => {
 
 	return {
 		cluster,
-		machineTemplate,
+		controlPlane: {
+			replicas: 1,
+			machineTemplate: {
+				machineTemplate,
+				preKubeadmCommands: [],
+				postKubeadmCommands: [],
+			},
+		},
 	};
 };
