@@ -2,6 +2,8 @@ import * as kubernetes from "@pulumi/kubernetes";
 
 const VERSION = "0.3.11";
 
+export { create as createCluster } from "./cluster";
+
 export interface ClusterApiManifests {
 	certManager?: kubernetes.yaml.ConfigFile;
 

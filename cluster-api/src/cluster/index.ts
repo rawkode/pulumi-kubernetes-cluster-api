@@ -6,7 +6,7 @@ import * as ipCidr from "ip-cidr";
 import { InfrastructureProvider } from "./infrastructure-provider";
 import { MachineTemplate } from "./machine-template";
 
-interface Config {
+export interface Config {
 	name: string;
 	kubernetesVersion: string;
 	kubernetesProvider: kubernetes.Provider;
@@ -23,7 +23,7 @@ interface Cluster {
 	cluster: capi.cluster.v1alpha3.Cluster;
 }
 
-const createCluster = (
+export const create = (
 	config: Config,
 	infra: InfrastructureProvider,
 	controlPlaneSpec: ControlPlaneSpec
