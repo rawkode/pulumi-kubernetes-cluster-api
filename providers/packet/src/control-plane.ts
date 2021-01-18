@@ -18,12 +18,18 @@ export interface Infrastructure {
 }
 
 export const create = (config: InfrastructureConfig): Infrastructure => {
-	const cluster = new capp.infrastructure.v1alpha3.PacketCluster(config.name, {
-		spec: {
-			projectID: config.projectID,
-			facility: config.facility,
+	const cluster = new capp.infrastructure.v1alpha3.PacketCluster(
+		config.name,
+		{
+			spec: {
+				projectID: config.projectID,
+				facility: config.facility,
+			},
 		},
-	});
+		{
+			provider: config.kubernetesProvider,
+		}
+	);
 
 	const machineTemplate = new capp.infrastructure.v1alpha3.PacketMachineTemplate(
 		`${config.name}-control-plane`,
@@ -39,6 +45,9 @@ export const create = (config: InfrastructureConfig): Infrastructure => {
 					},
 				},
 			},
+		},
+		{
+			provider: config.kubernetesProvider,
 		}
 	);
 
