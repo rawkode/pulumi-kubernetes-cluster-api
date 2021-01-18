@@ -1,8 +1,21 @@
 import * as kubernetes from "@pulumi/kubernetes";
+import { CustomResource, Output } from "@pulumi/pulumi";
 
 const VERSION = "0.3.11";
 
 export { create as createCluster } from "./cluster";
+
+export interface KubernetesCustomResource extends CustomResource {
+	apiVersion: Output<string | undefined>;
+	kind: Output<string | undefined>;
+	metadata: Output<kubernetes.types.input.meta.v1.ObjectMeta | undefined>;
+}
+
+export interface MachineTemplate {
+	machineTemplate: KubernetesCustomResource;
+	preKubeadmCommands: string[];
+	postKubeadmCommands: string[];
+}
 
 export interface ClusterApiManifests {
 	certManager?: kubernetes.yaml.ConfigFile;

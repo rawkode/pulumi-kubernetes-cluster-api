@@ -3,8 +3,7 @@ import * as kubernetes from "@pulumi/kubernetes";
 import * as capi from "@rawkode/pulumi-kubernetes-cluster-api-types";
 import * as ipCidr from "ip-cidr";
 
-import { InfrastructureProvider } from "./infrastructure-provider";
-import { MachineTemplate } from "./machine-template";
+import { KubernetesCustomResource, MachineTemplate } from "..";
 
 export interface Config {
 	name: string;
@@ -25,7 +24,7 @@ interface Cluster {
 
 export const create = (
 	config: Config,
-	infra: InfrastructureProvider,
+	infra: KubernetesCustomResource,
 	controlPlaneSpec: ControlPlaneSpec
 ): Cluster => {
 	const controlPlane = new capi.controlplane.v1alpha3.KubeadmControlPlane(
