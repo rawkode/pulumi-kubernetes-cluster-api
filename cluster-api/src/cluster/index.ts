@@ -35,9 +35,9 @@ export const create = (
 				replicas: controlPlaneSpec.replicas,
 				version: config.kubernetesVersion,
 				infrastructureTemplate: {
-					apiVersion: pulumi.interpolate`${controlPlaneSpec.machineTemplate.apiVersion}`,
-					kind: pulumi.interpolate`${controlPlaneSpec.machineTemplate.kind}`,
-					name: pulumi.interpolate`${controlPlaneSpec.machineTemplate.metadata.apply(
+					apiVersion: pulumi.interpolate`${controlPlaneSpec.machineTemplate.machineTemplate.apiVersion}`,
+					kind: pulumi.interpolate`${controlPlaneSpec.machineTemplate.machineTemplate.kind}`,
+					name: pulumi.interpolate`${controlPlaneSpec.machineTemplate.machineTemplate.metadata.apply(
 						(m) => m?.name
 					)}`,
 				},
