@@ -1,6 +1,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as kubernetes from "@pulumi/kubernetes";
 
+import { PacketMachineTemplate } from "@rawkode/pulumi-kubernetes-cluster-api-types-packet/bin/infrastructure/v1alpha3";
+
 const VERSION = "0.3.8";
 
 export interface ProviderConfig {
@@ -11,6 +13,11 @@ export interface ProviderConfig {
 
 export interface Provider {
 	capp: kubernetes.yaml.ConfigFile;
+}
+
+class OSPacketMachineTemplate extends PacketMachineTemplate {
+	preKubeadmCommands: string[];
+	postKubeadmCommands: string[];
 }
 
 export const init = (config: ProviderConfig): Provider => {
@@ -42,3 +49,5 @@ export const init = (config: ProviderConfig): Provider => {
 		),
 	};
 };
+
+export { create as createControlPlane } from "./control-plane";
