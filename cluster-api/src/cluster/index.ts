@@ -73,6 +73,9 @@ export const create = (
 					},
 				},
 			},
+		},
+		{
+			provider: config.kubernetesProvider,
 		}
 	);
 
