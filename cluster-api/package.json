@@ -1,17 +1,14 @@
 {
 	"name": "@rawkode/pulumi-kubernetes-cluster-api",
-	"version": "0.3.11-14",
+	"version": "0.3.11-15",
 	"description": "Pulumi Kubernetes Cluster API Helpers",
 	"repository": "https://github.com/rawkode/pulumi-kubernetes-cluster-api",
 	"author": "David McKay <david@rawkode.dev>",
 	"license": "MIT",
-	"files": [
-		"bin"
-	],
 	"dependencies": {
 		"@pulumi/kubernetes": "2.7.0",
 		"@pulumi/pulumi": "2.13.2",
-		"@rawkode/pulumi-kubernetes-cluster-api-types": "0.3.11-4",
+		"@rawkode/pulumi-kubernetes-cluster-api-types": "0.3.11-5",
 		"ip-cidr": "^2.1.1"
 	},
 	"devDependencies": {
@@ -27,7 +24,5 @@
 	"scripts": {
 		"build": "tsc",
 		"test": "mocha -r ts-node/register ./tests/**.ts"
-	},
-	"main": "bin/index.js",
-	"types": "bin/index.d.ts"
+	}
 }
