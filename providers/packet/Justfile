@@ -1,3 +1,7 @@
-publish:
+build:
+	yarn run tsc
+
+publish: build
 	yarn version --prerelease
-	yarn publish --access public
+	cp package.json README.md LICENSE ./bin/
+	yarn publish --non-interactive --access public ./bin/
