@@ -1,8 +1,6 @@
 import { CustomResource, Output } from "@pulumi/pulumi";
 
-export type InfrastructureProvider = Output<
-	CustomResource & InfrastructureCluster
->;
+export type InfrastructureProvider = CustomResource & InfrastructureCluster;
 
 interface InfrastructureCluster {
 	apiVersion: Output<string>;

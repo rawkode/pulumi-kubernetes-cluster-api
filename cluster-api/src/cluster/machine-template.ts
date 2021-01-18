@@ -1,6 +1,6 @@
 import { CustomResource, Output } from "@pulumi/pulumi";
 
-export type MachineTemplate = Output<CustomResource & MachineTemplateImpl>;
+export type MachineTemplate = CustomResource & MachineTemplateImpl;
 
 interface MachineTemplateImpl {
 	apiVersion: Output<string>;
