@@ -107,7 +107,7 @@ export const create = (
 				infrastructureRef: {
 					apiVersion: pulumi.interpolate`${infra.apiVersion}`,
 					kind: pulumi.interpolate`${infra.kind}`,
-					name: pulumi.interpolate`${infra.metadata.name}`,
+					name: pulumi.interpolate`${infra.metadata?.name}`,
 				},
 			},
 		},
