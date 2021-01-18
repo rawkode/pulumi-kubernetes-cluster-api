@@ -1,5 +1,5 @@
 import { Runtime } from "@rawkode/pulumi-kubernetes-cluster-api/runtimes";
-import { Image } from "./index";
+import { Image } from "./base";
 
 abstract class Ubuntu extends Image {
 	name(): string {
