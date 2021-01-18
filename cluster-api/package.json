@@ -1,6 +1,6 @@
 {
 	"name": "@rawkode/pulumi-kubernetes-cluster-api",
-	"version": "0.3.11-18",
+	"version": "0.3.11-19",
 	"description": "Pulumi Kubernetes Cluster API Helpers",
 	"repository": "https://github.com/rawkode/pulumi-kubernetes-cluster-api",
 	"author": "David McKay <david@rawkode.dev>",
@@ -23,7 +23,6 @@
 	},
 	"scripts": {
 		"build": "tsc",
-		"prepublish": "yarn build && cp README.md LICENSE package.json ./bin/",
 		"test": "mocha -r ts-node/register ./tests/**.ts"
 	}
 }
