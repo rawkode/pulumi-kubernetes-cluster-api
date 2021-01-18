@@ -8,7 +8,7 @@
 	"dependencies": {
 		"@pulumi/kubernetes": "2.7.0",
 		"@pulumi/pulumi": "2.13.2",
-		"@rawkode/pulumi-kubernetes-cluster-api-types": "0.3.11-5",
+		"@rawkode/pulumi-kubernetes-cluster-api-types": "workspace:*",
 		"ip-cidr": "^2.1.1"
 	},
 	"devDependencies": {
@@ -23,6 +23,7 @@
 	},
 	"scripts": {
 		"build": "tsc",
+		"prepublish": "yarn build && cp README.md LICENSE package.json ./bin/",
 		"test": "mocha -r ts-node/register ./tests/**.ts"
 	}
 }

@@ -3,7 +3,6 @@ build:
 
 publish: build
 	yarn version --prerelease
-	cp README.md LICENSE package.json ./bin/
 	yarn publish --non-interactive --access public ./bin/
 
 test:

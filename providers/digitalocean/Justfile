@@ -1,3 +1,4 @@
 publish:
 	yarn version --prerelease
-	yarn publish --access public
+	cp README.md LICENSE package.json ./bin/
+	yarn publish --non-interactive --access public ./bin/

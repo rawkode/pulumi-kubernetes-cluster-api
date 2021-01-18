@@ -1,0 +1,7 @@
+render:
+	PULUMI_CONFIG_PASSPHRASE=pass123 pulumi stack init render
+	PULUMI_CONFIG_PASSPHRASE=pass123 pulumi up
+	PULUMI_CONFIG_PASSPHRASE=pass123 pulumi stack rm --force --yes render
+
+clean:
+	PULUMI_CONFIG_PASSPHRASE=pass123 pulumi stack rm --force --yes render

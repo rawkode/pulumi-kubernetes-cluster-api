@@ -1,4 +1,4 @@
 export enum Runtime {
-  Docker,
-  containerd,
+	Docker,
+	containerd,
 }
