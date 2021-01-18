@@ -4,11 +4,15 @@ import { ControlPlaneSpec } from "@rawkode/pulumi-kubernetes-cluster-api/cluster
 import * as capp from "@rawkode/pulumi-kubernetes-cluster-api-types-packet";
 
 import Facility from "./facility";
+import { Image } from "./images";
 
 export interface InfrastructureConfig {
 	name: string;
 	projectID: string;
 	facility: Facility | string;
+	image: Image;
+	machineType: string;
+	replicas: number;
 	kubernetesProvider: kubernetes.Provider;
 }
 
@@ -37,9 +41,9 @@ export const create = (config: InfrastructureConfig): Infrastructure => {
 			spec: {
 				template: {
 					spec: {
-						OS: "",
-						billingCycle: "",
-						machineType: "",
+						OS: config.image.id(),
+						billingCycle: "Hourly",
+						machineType: config.machineType,
 						sshKeys: [],
 						tags: [],
 					},
@@ -54,11 +58,11 @@ export const create = (config: InfrastructureConfig): Infrastructure => {
 	return {
 		cluster,
 		controlPlane: {
-			replicas: 1,
+			replicas: config.replicas,
 			machineTemplate: {
 				machineTemplate,
-				preKubeadmCommands: [],
-				postKubeadmCommands: [],
+				preKubeadmCommands: config.image.preKubeadmCommands(),
+				postKubeadmCommands: config.image.postKubeadmCommands(),
 			},
 		},
 	};
